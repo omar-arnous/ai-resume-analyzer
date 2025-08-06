@@ -3,7 +3,7 @@ import type { Route } from "./+types/home";
 import ResumeCard from "~/components/ResumeCard";
 import { resumes } from "../../constants/index";
 import { usePuterStore } from "~/lib/puter";
-import {Link, useLocation, useNavigate} from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { useEffect, useState } from "react";
 
 export function meta({}: Route.MetaArgs) {
@@ -66,11 +66,16 @@ export default function Home() {
           </div>
         )}
 
-          {!loadingResumes && resumes?.length === 0 && (
-              <div className="flex flex-col items-center justify-center mt-10 gap-4">
-                  <Link to="/upload" className="primary-button w-fit text-xl font-semibold">Upload Resume</Link>
-              </div>
-          )}
+        {!loadingResumes && resumes?.length == 0 && (
+          <div className="flex flex-col items-center justify-center mt-10 gap-4">
+            <Link
+              to="/upload"
+              className="primary-button w-fit text-xl font-semibold"
+            >
+              Upload Resume
+            </Link>
+          </div>
+        )}
       </section>
     </main>
   );
